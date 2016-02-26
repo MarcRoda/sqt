@@ -1,0 +1,165 @@
+<html>
+	<head>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, target-densitydpi=device-dpi" />
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/core_style.css">
+	<script src='js/game.js'></script>
+	<script src='js/square.js'></script>
+	<script src='js/ruleset.js'></script>
+	<script src='js/graphix.js'></script>
+	<script src='js/input.js'></script>
+	<script src='js/debugger.js'></script>
+	
+	<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
+	
+	</head>
+	<body>
+						<!--this class over here is the one that shows the state should be main-menu onstart!-->
+	<div id="gameScreen" class="main-menu">
+		<!--This is the game itself!-->
+		<div id="topMenu">
+			<div id="pauseButton"></div>
+			<div id="scoreButtons">
+				<div id="actualScoreHandler">
+					Score: <span id="actualScore">34</span> pts!
+				</div>
+				<div id="pastScoreHandler">
+					Record: <span id="topScore">340</span> pts!
+				</div>
+			</div>
+		</div>
+		<div id='gameHandler'  class='gameHandler'></div>
+		<div id="bannerMenu"></div>
+
+
+
+		<!-- This is the pause menu!-->
+		<div id="pauseMenu"> 
+			<div id="pauseBanner" class="active"> 
+				banana 
+			</div>
+			<div id="pauseButtonHolder">
+				<div id="pauseButtonSecondHolder">
+					<div name="restart" id="pause_restart" class="pause-button">
+						<img src="img/restart.png"></img>
+					</div>
+					<div name="resume" id="pause_resume" class="pause-button">
+						<img src="img/resume.png"></img>
+					</div>
+					<div name="mainmenu" id="pause_mainmenu" class="pause-button">
+						<img src="img/settings.png"  class="back-icon"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--This is the play button plus the lower buttons!-->
+		<div id="menuButtons">
+
+			<svg viewbox="0 0 100 40" style="width:100%" id="playButton">
+			  <defs>
+			    <mask id="mask" x="0" y="0" width="100" height="40">
+			      <rect x="0" y="0" width="100" height="40" fill="#fff"/>
+			      <text text-anchor="middle" x="50" y="20" dy="2" style="font-family: 'Play'; font-weight: 700" >PLAY</text>
+			    </mask>
+			  </defs>
+			  <rect x="0" y="0" width="100" height="35" mask="url(#mask)" fill-opacity="1" fill="#00DB92"/>    
+			</svg>
+			<div id="sub-menu">
+				<div id="tutorial_icon" class="menu-item">
+					<img src='img/help.png' style="height:100%"></img>
+				</div>
+				<div id="config_icon" class="menu-item">
+					<img src='img/rank.png' style="height:100%"></img>
+				</div>
+				<div id="leaderboard_icon" class="menu-item" >
+					<img src='img/settings.png' style="height:100%"></img>
+				</div>
+				
+				
+			</div>
+		</div>
+		<!--This is the tutorial menu!-->
+		<div id="tutorial" class="full-page-menu">
+			<div class="top-bar">
+				<img src="img/icon_down.png" class="back-icon"></img>
+			</div>
+			<div id="tutorial_starter">
+				Start the tutorial
+			</div>
+		</div>
+		<div id="settings" class="full-page-menu">
+			<div class="top-bar">
+				<img src="img/icon_down.png" class="back-icon"></img>
+			</div>
+		</div>
+		<div id="leaderboard" class="full-page-menu">
+			<div class="top-bar">
+				<img src="img/icon_down.png" class="back-icon"></img>
+			</div>			
+		</div>
+	</div>
+	</body>
+	<script>
+		var console={};
+		console.log=function(){}
+		//alert('ueee')
+		var myHandler=document.getElementById('gameHandler');
+		var gameScreen=document.getElementById('gameScreen');	
+		var myGame=new Game(myHandler,gameScreen);
+		myGame.start();
+
+		
+		myGame.isBusy=true;
+		//this accounts for the buttons in the main screen
+
+		document.getElementById("playButton").addEventListener('click',function(e){
+			myGame.isBusy=false;
+			gameScreen.className="playing"
+		})
+
+		document.getElementById("tutorial_icon").addEventListener('click',function(e){
+			gameScreen.className="tutorial"
+		})
+		document.getElementById("config_icon").addEventListener('click',function(e){
+			gameScreen.className="settings"
+		})
+		document.getElementById("leaderboard_icon").addEventListener('click',function(e){
+			gameScreen.className="leaderboard"
+		})
+
+		//this accounts for the varius return buttons in the 
+
+		dl=document.getElementsByClassName("back-icon");
+		for(var i=0; i<dl.length;i++){
+			dl[i].addEventListener('click', function(e){
+				gameScreen.className="main-menu"
+				myGame.restart(true);
+			})
+		}
+
+		document.getElementById("pause_resume").addEventListener('click',function(e){
+			gameScreen.className="playing"
+			myGame.isBusy=false;
+		})
+
+		document.getElementById("pause_restart").addEventListener('click',function(e){
+			gameScreen.className="playing"
+			myGame.isBusy=false;
+			myGame.restart(true);
+		})
+		/*var myGUI=new GUI(myHandler)
+		myGUI.createTable()
+		var myRules=new RuleSet(myGUI);
+		var myPiece=myRules.newPiece(4,'random');
+		myPiece.show();
+		myPiece.setDelay(3);
+		window.setTimeout( (function(x){return function(){x.translate()}})(myPiece),1)/**/
+	</script>
+</html>

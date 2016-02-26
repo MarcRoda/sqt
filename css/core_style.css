@@ -1,0 +1,175 @@
+.pointsParent{
+	height: 55px;
+	position:relative;
+	margin: 0 auto;
+	width:650px;
+}
+
+.pointsNow{
+	margin-bottom: 20px;
+	text-align:left;
+	float:left;
+	font-size: 30px;
+	font-family: 'Play', sans-serif;
+	font-weight: 700;
+	color: #E95000;
+	width: 45%;
+}
+
+.pointsBefore{
+	margin-bottom: 20px;
+	text-align: right;
+	float:right;
+	line-height: 25px;
+	font-size: 25px;
+	font-family: 'Play', sans-serif;
+	font-weight: 700;
+	/*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+	color: #A94000;
+	width: 45%;
+}
+
+.bigTable{
+	display:table;
+	z-index:0;
+	border-collapse:collapse;
+	width:100%;
+	height:100%;
+}
+
+.bigCell{
+	width:33.333%;
+	height: 33.333%;
+	margin:0px;
+	border-style:none;
+	border-color: #099;
+	border-width:0px;
+	padding:0px;
+	margin:0px;
+	vertical-align: middle;
+}
+
+.centerRegion{
+	background-color:#ffcb2f;
+}
+.sideRegion{
+	background-color:#fbf3ba;
+}
+.cornerRegion{
+	background-color:#fffbe3;
+}
+
+.smallTable{
+	display:table;
+	border-collapse:collapse;
+	margin:0;
+	border:0;
+	width:100%;
+	height:100%;
+
+}
+.smallTable tbody {
+width:100%;
+height:100%;
+}
+.smallCell{
+	width: 33.334%;
+	height: 33.334%;
+	margin:0px;
+	border-style:none;
+	border-color: #BBB;
+	border-width:0px;
+
+}
+/*.centerCell td{
+	background-color:#ffcb2f;
+}
+.sideCell td{
+	background-color:#fbf3ba;
+}
+.cornerCell td{
+	background-color:white;
+}*/
+
+
+.smallCell:last-child{
+	border-right-color: #333;
+	border-right-width:1px;
+}
+.smallCell:first-child{
+	border-left-color: #333;
+	border-left-width:1px;
+}
+
+.smallTable tr:last-child .smallCell{
+	border-bottom-color: #333;
+	border-bottom-width:1px;
+}
+.smallTable tr:first-child .smallCell{
+	border-top-color: #333;
+	border-top-width:1px;
+}
+
+.square{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+  	-webkit-box-sizing: border-box;
+	width:11.1%;/*47.2px;*/
+	height:11.1%;
+	position: absolute;
+	border-style:solid;
+	border-width:2px;
+	border-color:black;
+	z-index: 1;
+    border-radius:22px;
+
+}
+
+.scoreBanner{
+	transform-origin:center;
+	text-align: center;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-family: 'Slackey', cursive;
+	z-index: 3;
+}
+
+.piecePoints{
+	font-size: 15px;
+	color: #E95000;
+	z-index: 2;
+}
+
+.cornerDestruction{
+	font-family: 'Slackey', cursive;
+	color: green;
+	font-size: 20px;
+}
+
+.borderDestruction{
+	font-family: 'Slackey', cursive;
+	color: red;
+	font-size: 30px;
+}
+
+.centerDestruction{
+	color: blue;
+	font-size: 55px;
+}
+.combo{
+	color: yellow;
+	font-size: 20px;
+}
+
+.emptyBox{
+	color: yellow;
+	font-size: 20px;
+}
+
+.handler{
+	width: 6750px;
+	max-width: 90vmin;
+	height: 6750px;
+	max-height: 90vmin;
+	position: relative;
+	margin: 0 auto;
+}

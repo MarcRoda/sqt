@@ -1,0 +1,246 @@
+html, body {
+  overflow: hidden;
+}
+
+body{
+	padding: 0px;
+	border: 0px;
+	margin: 0px;
+	position: relative;
+}
+
+h1{
+	padding-top: 55px;
+	padding-bottom: 3px;
+	text-align: center;
+	font-family: 'Play', sans-serif;
+	font-size: 400%;
+}
+
+#gameScreen{
+	width: 100%;
+	height: 100%;
+	/*background-color: red;*/
+}
+
+/*This controls the layer of menu-buttons*/
+
+#menuButtons{
+	position: absolute;
+	height: 60%;
+	width: 100%;
+	color:transparent;
+	z-index: 20;
+	visibility: hidden;
+	transition: top.7s, visibility .7s .1s;
+	top: -75%;
+
+	
+}
+
+.playing #menuButtons{
+	top: 120vh;
+}
+.paused #menuButtons{
+	top: -75%;
+}
+
+.main-menu #menuButtons{
+	top:35%;
+	visibility: visible;
+}
+
+#sub-menu{
+	width:100%; 
+	position:absolute; 
+	bottom:5%; 
+	height:20%; 
+	clear:both;
+}
+
+#sub-menu .menu-item{
+	float:left; 
+	width:33.3%; 
+	height:100%;
+	text-align: center;
+}
+
+
+
+/*Pause Menu*/
+
+#pauseMenu{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+  	-webkit-box-sizing: border-box;
+	z-index: 20;
+	position: absolute;
+	top:100%;
+	margin: 10vw;
+	border-color:rgba(0,0,0,0);
+	height: 80%;
+	width: 80%;
+	background-color: #00DB92;
+	visibility: hidden;
+	transition: top.7s, visibility .7s .1s;
+}
+
+.paused #pauseMenu{
+	top:0%;
+	visibility: visible;
+
+}
+
+
+#pauseBanner{
+	position: absolute;
+	background-color: yellow;
+	width: 64vw;
+	max-width: 64wh;
+	max-height: 64vh;
+	height: 64vw;
+	margin: 8vw;
+}
+
+#pauseButtonHolder{
+	box-sizing:border-box;
+	padding-top:80vw;
+	height: 100%;
+	background-color: #00DB92;
+}
+#pauseButtonSecondHolder{
+	top:0px;
+	bottom: 0px;
+	width: 100%;
+	background-color: orange;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+.pause-button{
+	width:20%;
+	margin-left: 5%;
+	margin-right: 5%;
+	float:left;
+	border:1px;
+	height: 100%;
+
+}
+
+.pause-button img{
+	height:70%;
+	max-height: 25vw;
+	margin:0 auto;
+	margin-left:50%;
+	transform: translate(-50%, 0);
+}
+
+#pause_restart{
+
+}
+
+#pause_resume{
+	
+}
+
+#pause_mainmenu{
+
+}
+/*This controls the menus INSIDE THE GAME SCREEN*/
+#topMenu{
+	height: 15%;
+	/*background-color: yellow;*/
+	width: 100%;
+}
+
+
+
+#bannerMenu{
+	height: 10%;
+	/*background-color: yellow;*/
+	width: 100%;
+}
+
+
+.gameHandler{
+	/*position: absolute;*/
+	margin: 0 auto;
+	width: 100vw;
+	height: 80%;
+	/*background-color: green;*/
+}
+
+/*@media (min-aspect-ratio: 1/2){
+	.gameHandler{
+		bottom: 25vw;
+		background-color: blue;
+	}
+}*/
+
+
+
+
+
+
+.full-page-menu{
+	z-index: 20;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	visibility: hidden;
+	top:110%;
+	transition: top.7s, visibility .7s .1s;
+	background-color: red;
+}
+
+.tutorial #tutorial{
+	top:0%;
+	visibility: visible;
+}
+
+.settings #settings{
+	top:0%;
+	visibility: visible;
+}
+
+.leaderboard #leaderboard{
+	top:0%;
+	visibility: visible;
+}
+
+
+
+.full-page-menu .top-bar{
+	height: 8%;
+	padding-top: 1vh;
+	background-color: blue;
+}
+
+.top-bar .back-icon{
+	height: 100%;
+	margin-left: 3%;
+}
+
+.full-page-menu  #tutorial_starter{
+	width: 80%;
+	height: 20vh;
+	line-height: 20vh;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 32vh;
+	background-color: green;
+	font-family: "Play", sans-serif;
+	font-weight: 400;
+	color: white;
+	font-size: 8vw;
+}
+/*////////////*/
+
+.Abs-Center {
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.main-menu #topMenu{
+	visibility: hidden;
+}
